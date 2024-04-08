@@ -81,4 +81,5 @@ if [ -z "$CONFIG_ONLY" ]; then
     rm .MYCONFIG
     make -j8
     make headers_install INSTALL_HDR_PATH=$KERNEL/usr/
+    make scripts_gdb
 fi

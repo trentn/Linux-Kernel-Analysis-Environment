@@ -87,6 +87,5 @@ COPY kernel_options/* ./
 # configure build scripts gdb
 ENV PATH $PATH:$VMSCRIPTS
 WORKDIR /root
-COPY .tmux.conf .
 RUN wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 RUN echo "add-auto-load-safe-path /" >> .gdbinit

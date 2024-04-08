@@ -46,7 +46,7 @@ if [ ! -f "$KERNEL/vmlinux" ]; then
 fi
 
 if [ ! -f "$IMAGE/$RELEASE.img" ]; then
-    cd $IMAGE && ./create_image.sh -d $RELEASE
+    cd $IMAGE && ./create-image.sh -d $RELEASE
 else
     update_fstab
 fi
