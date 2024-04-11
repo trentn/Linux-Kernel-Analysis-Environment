@@ -8,11 +8,9 @@ fi
 
 sudo mount -o loop $IMAGE/${RELEASE}_freshinstall.img /mnt/$DIR
 
-sudo sed -i '/^kernelbuild/d' /mnt/$DIR/etc/fstab
-
-KERNELRELEASE=$(cat $KERNEL/include/config/kernel.release)
-echo "kernelbuild /lib/modules/$KERNELRELEASE/build 9p defaults 0 0" | sudo tee -a /mnt/$DIR/etc/fstab
-
+pushd kernel
+sudo make modules_install INSTALL_MOD_PATH=/mnt/$DIR INSTALL_MOD_DIR="extra"
+popd
 
 sudo umount /mnt/$DIR
 sudo rmdir /mnt/$DIR
